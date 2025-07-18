@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 
 function Table() {
   const baseUrl = "http://127.0.0.1:8000/api/books";
@@ -75,7 +76,7 @@ function Table() {
         }}
       />
       <button type="button" className="btn btn-success" onClick={sendData}>
-        Guardar
+        Agregar libro
       </button>
       <table>
         <thead>
@@ -103,9 +104,11 @@ function Table() {
                   >
                     Eliminar
                   </button>
-                  <td>
-                    <a href="" className="btn btn-warning"></a>
-                  </td>
+                </td>
+                <td>
+                  <Link to={`/editar/${book.id}`} className="btn btn-warning">
+                    Editar
+                  </Link>
                 </td>
               </tr>
             );
